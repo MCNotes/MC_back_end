@@ -81,7 +81,8 @@ def get_lissue():
     return response_json
 
 
-def get_rcom():
+def get_revcom():
+    """Get the comments from the reviewers"""
     construct['comments'] = construct['last_pull'] + '/comments'
     
     url = create_url('comments')
@@ -96,19 +97,41 @@ def summarise_info(PR):
                'created_at': PR['created_at'],
                'commit_sha': PR['head']['sha']}
     
+    
+    # Getting the assigned revieswers 
+    reviewer_ind = get_reviewers(PR)    
+    PR_info['reviewers'] = reviewer_ind
+    
+    # Getting the reviewers comments
+    
     if not PR['merged_at']: 
         print('*** This PR has not been merged yet ***')
     else:
-        comments = get_rcom()
+        comments = get_revcom()
         PR['merged_at'] = PR['merged_at']
-        
-    wanted = ['login','html_url']
-    for i in PR['requested_reviewers']:
-        reviewer_ind = {k:i[k] for k in wanted}
-    
-    PR_info['reviewers'] = reviewer_ind
+        comment_ind = dict_comments(PR)
+        PR_info['rev_comments'] = comment_ind
     
     return PR_info
+
+def get_reviewers(PR):
+    """ Get the reviewers assigned """
+    rev_keys = ['login','html_url']
+    for i in PR['requested_reviewers']:
+        reviewer_ind = {k:i[k] for k in rev_keys}
+    
+    return reviewer_ind
+
+def dict_comments(PR):
+    """Summarise the comments"""
+          
+    com_keys = ['body', 'diff_hunk']
+    for i in comments:
+        comment_ind = {k:i[k] for k in wanted}
+        comment_ind['User'] = i['user']['login']
+    
+    return comment_ind
+        
 #---------------------------------------------------------
 
 # First we need to get the PR
@@ -121,7 +144,5 @@ pulls_files = get_files(pulls)
 PR = pulls[0]
 
 PR_info = summarise_info(PR)
-
-
 
 
