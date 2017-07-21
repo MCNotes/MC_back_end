@@ -151,5 +151,5 @@ PR_info = summarise_info(PR)
 # Saving the info
 json.dump(PR_info, open('./PR_summary.json', 'w'))
 with open('PR_summary.yml', 'w') as yml_file:
-    yml.dump(PR_info, yml_file, default_flow_style = False)
+    yaml.dump(PR_info, yml_file, default_flow_style = False)
 
