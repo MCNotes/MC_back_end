@@ -100,9 +100,28 @@ def get_rcom():
     
 #---------------------------------------------------------
 
-# getting pull requests: all, closed, open
+# First we need to get the PR
 pulls = get_pulls('all')
 
+# Identify the files from the last pull request
 pulls_files = get_files(pulls)
 
-last_issue = get_lissue()
+# Check the merge status
+PR = pulls[0]
+
+
+if not PR['merged_at']: 
+    print('*** This PR has not been merged yet ***')
+else:
+    comments = get_rcom()
+    PR_comments = [['body': i['body'], 'reviewer': i['user']['login']] for i in comments]
+    
+# Now storing the data
+PR_info = {'author' : PR['user']['login'],
+           'created_at': PR['created_at'],
+           'commit_sha': PR['head']['sha'],
+           'reviewers' : PR['requested_reviewers']['login']}
+
+
+# Getting the reviewers
+reviewers = [i['login'] for i in PR['requested_reviewers']]
