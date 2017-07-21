@@ -140,9 +140,11 @@ pulls = get_pulls('all')
 # Identify the files from the last pull request
 pulls_files = get_files(pulls)
 
-# Check the merge status
+# Summarising the information for the last PR
 PR = pulls[0]
-
 PR_info = summarise_info(PR)
+
+# Saving the info
+json.dump(PR_info, open('./PR_summary.json', 'w'))
 
 
