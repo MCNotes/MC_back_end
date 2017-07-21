@@ -80,15 +80,6 @@ def get_lissue():
     response_json = response.json()
     return response_json
 
-def get_reviewers():
-    """Getting the review information for the PR"""
-    
-    construct['reviewers'] = construct['last_pull'] + '/requested_reviewers'
-    
-    url = create_url('reviewers')
-    response = requests.get(url)
-    response_json = response.json()
-    return response_json
 
 def get_rcom():
     construct['comments'] = construct['last_pull'] + '/comments'
@@ -98,6 +89,26 @@ def get_rcom():
     response_json = response.json()
     return response_json
     
+def summarise_info(PR):
+        
+    """ Saves the data collected """
+    PR_info = {'author' : PR['user']['login'],
+               'created_at': PR['created_at'],
+               'commit_sha': PR['head']['sha']}
+    
+    if not PR['merged_at']: 
+        print('*** This PR has not been merged yet ***')
+    else:
+        comments = get_rcom()
+        PR['merged_at'] = PR['merged_at']
+        
+    wanted = ['login','html_url']
+    for i in PR['requested_reviewers']:
+        reviewer_ind = {k:i[k] for k in wanted}
+    
+    PR_info['reviewers'] = reviewer_ind
+    
+    return PR_info
 #---------------------------------------------------------
 
 # First we need to get the PR
@@ -109,19 +120,8 @@ pulls_files = get_files(pulls)
 # Check the merge status
 PR = pulls[0]
 
-
-if not PR['merged_at']: 
-    print('*** This PR has not been merged yet ***')
-else:
-    comments = get_rcom()
-    PR_comments = [['body': i['body'], 'reviewer': i['user']['login']] for i in comments]
-    
-# Now storing the data
-PR_info = {'author' : PR['user']['login'],
-           'created_at': PR['created_at'],
-           'commit_sha': PR['head']['sha'],
-           'reviewers' : PR['requested_reviewers']['login']}
+PR_info = summarise_info(PR)
 
 
-# Getting the reviewers
-reviewers = [i['login'] for i in PR['requested_reviewers']]
+
+
