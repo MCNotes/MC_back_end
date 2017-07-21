@@ -4,3 +4,9 @@ dependencies:
   - numpy
   - scipy
   - jupyter
+  - requests
+  - pyaml
+  - pip
+  - pip :
+    - nbval
+    - pyyaml

@@ -16,6 +16,7 @@ import requests
 import json
 import sys
 from urllib.parse import urljoin
+import yaml
 
 
 # Info needed to construct the API get request
@@ -149,5 +150,6 @@ PR_info = summarise_info(PR)
 
 # Saving the info
 json.dump(PR_info, open('./PR_summary.json', 'w'))
-
+with open('PR_summary.yml', 'w') as yml_file:
+    yml.dump(PR_info, yml_file, default_flow_style = False)
 
