@@ -5,6 +5,9 @@ Created on Thu Jul 20 15:15:48 2017
 
 @author: tania
 This python script is used to extract the data from the GitHub pull requests
+it uses the Github API v3
+note this is not using OAuth as it is not intented for POST request
+or to exceed 60 requests per hour
 """
 
 
