@@ -1,0 +1,14 @@
+language: python
+python:
+- '3.5'
+- '3.6'
+- '3.7'
+install:
+before_script:
+script:
+branches:
+  only:
+  - master
+env:
+  global:
+    secure: LkCE/pLgkZFrX5zucroCQbtGNb9DkQH3NTLQ/Jb62HIyqJJPgZA//POzSQ0TpEgRVKe08KO+T2S7RoJ6bjuRps8KZYU6Ycz9Rw0wArdgHun4OjL0Q4E3tkm0ygDS6O7OI3TJqOEp6Kc/p+LfAKjLKnnBetj9f/Uge29mkcwk+EO2qp8iSd3XiJ8ZUnKFNTLplbGpPx7l3mI1iLlwSGrSgTpO1zPUsy/dMIvbl9c7zxacoAB3NORVUGPyMINByDBfxG+R9nZdL4lfuJ0WRqNyulI9q8y8KiEBMyZQ23Qx8/AhZMa6k1IfyDnELXBlki/d70vXZCcGw1VnJsr7a4KUKHD6C5AZnjdnliMvHFuZrNtBrCmTxGX7bwDLPCyh7HwXXsWX6JyT0PCUxXyTze5cb6umNFbv4ZgWoUsMsqT0zVtu/bf7lmc2PFzA51AjtBsa/0KdAl0scen6mIsAtEb0DrspnTYCyWH/RuSX+mMUDxg9pD2YNqFhBAzr/ondd3hn/my7j459oBdI+rhcioC4IdSdPupZKHrEutvdy0b1vPHmWqjDlVfwi9DJK/zmb/k3Lt3If+ATFNWw8KxC26P0ZCSZS285nID2NXrS3xoPMCas3XpSBW53faaX3quGpKL7RpeA/D7FZrckeUr0E1Vpl80QAdiKOHBCixLd6983598=
