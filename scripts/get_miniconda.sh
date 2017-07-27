@@ -12,10 +12,11 @@ fi;
 
 if [[ $TRAVIS_PYTHON_VERSION == "2.7" ]];
 then
-  export MINICONDA=Miniconda2;
+  wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
 elif [[ $TRAVIS_PYTHON_VERSION == 3* ]];
 then
-  export MINICONDA=Miniconda3; else echo "Could not find the specified Python version";
+  wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+else echo "Could not find the specified Python version";
   exit 1;
 fi;
 
