@@ -1,2 +1,5 @@
-
+.ipynb_checkpoints
 \.DS_Store
+.idea 
+
+scripts/MC_python/__pycache__/

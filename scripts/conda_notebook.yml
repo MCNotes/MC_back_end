@@ -6,6 +6,8 @@ dependencies:
   - jupyter
   - requests
   - pip
+  - matplotlib
+  - pandas
   - pip :
     - nbval
     - pyyaml
