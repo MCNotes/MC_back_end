@@ -11,6 +11,9 @@ install:
 before_script:
 script:
   - source scripts/travis_init.sh
+
+after_script:
+  
 branches:
   only:
   - master
