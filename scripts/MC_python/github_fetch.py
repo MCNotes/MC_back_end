@@ -135,6 +135,8 @@ def dict_comments(PR):
 
 
 def update_PR(PR, data):
+    """ Used to change the body of the PR according to a
+    predefined template """
     # note the first element corresponds to the latest pull request
     construct['pull_no'] = str(pulls[0]['number'])
     construct['last_pull'] = construct['pulls'] + '/' + construct['pull_no']

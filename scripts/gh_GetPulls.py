@@ -25,7 +25,7 @@ import yaml
 #---------------------------------------------------------
 
 # First we need to get the PR
-pulls = gh.get_pulls('all')
+pulls = gh.get_pulls('open')
 
 # Identify the files from the last pull request
 pulls_files = gh.get_files(pulls)
