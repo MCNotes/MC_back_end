@@ -92,7 +92,8 @@ def get_revcom():
 
 def summarise_info(PR):
     """ Saves the data collected """
-    PR_info = {'author': PR['user']['login'],
+    PR_info = {'number' : PR['number'],
+               'author': PR['user']['login'],
                'created_at': PR['created_at'],
                'commit_sha': PR['head']['sha']}
 
