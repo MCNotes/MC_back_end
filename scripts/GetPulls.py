@@ -15,6 +15,7 @@ This uses the github3 library as a wrapper for the Gtihub API
 import github3 as gh3
 import yaml
 from MC_python import *
+from MC_python import github_fetch as gh
 
 # get the repository to use from the package
 repo = gh3.repository(gh_user, gh_repo)
@@ -49,6 +50,7 @@ for file in last_pull.files():
 
 # Now we save the info in a dictionary structure
 PR_info  = {'author' : last_pull.user.login,
+            'commit_sha' : last_pull.head.sha,
             'created_at': last_pull.created_at.strftime('%d/%m/%Y'),
             'number' : last_pull.number,
             'files' : files}
