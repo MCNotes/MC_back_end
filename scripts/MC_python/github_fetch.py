@@ -25,6 +25,11 @@ construct = {'baseurl': 'https://api.github.com/repos/',
 
 
 # ---------------------------------------------------------
+# The folllwing are the various methods used to query
+# data from GitHub and format data 
+
+
+
 def create_url(request):
     url = urljoin(construct['baseurl'], construct[request])
     return url
@@ -145,3 +150,34 @@ def update_PR(PR, data):
 
 
     update =  requests.patch(url, data)
+    
+
+# ---------------------------------------------------------
+class state:
+	current = ""
+	INITIALIZING         = "script-initializing"
+	LOADING_CONFIG       = "loading-config"
+	FETCHING_ISSUES      = "fetching-issues"
+	GENERATING           = "generating"
+	IMPORT_CONFIRMATION  = "import-confirmation"
+	IMPORTING            = "importing"
+	IMPORT_COMPLETE      = "import-complete"
+	COMPLETE             = "script-complete"
+	
+state.current = state.INITIALIZING
+
+http_error_messages = {}
+http_error_messages[401] = "ERROR: There was a problem during authentication.\nDouble check that your username and password are correct, and that you have permission to read from or write to the specified repositories."
+http_error_messages[403] = http_error_messages[401]; # Basically the same problem. GitHub returns 403 instead to prevent abuse.
+http_error_messages[404] = "ERROR: Unable to find the specified repository/source requested.\nDouble check the spelling for the source and target repositories. If either repository is private, make sure the specified user is allowed access to it."
+
+
+# ---------------------------------------------------------
+def format_from_template(template, template_data):
+    from string import Template
+    loc = os.path.join(os.getcwd(), 'templates')
+    template_file = open(template, 'r')
+    temp = Template(template_file.read())
+    return template.substitute(template_data)
+        
+    

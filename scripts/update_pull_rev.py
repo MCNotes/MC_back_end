@@ -3,7 +3,9 @@
 """
 Created on Mon Aug  7 13:58:57 2017
 
-@author: tania
+@author: Tania Allard
+@github user: trallard
+
 This Python script modifies the Pull request template and changes the label for the intial review of the notebooks. 
 
 This uses the github3 library as a wrapper for the Gtihub API

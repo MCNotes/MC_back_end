@@ -9,7 +9,7 @@ reviewer:
 ## Status
 
 
-*** ad badge ***
+*** add badge ***
 
 ## Note for reviewers and authors:
 Please avoid lengthy details of difficulties in the review thread. Instead, please create a new issue in the target repository and link to those issues in the review thread below.
