@@ -42,13 +42,15 @@ def import_PR(issue):
     template_data['user_avatar'] = issue.user.avatar_url
     return template_data
 
-def format_PR(template, template_data):
+def format_PR(template_data):
     """ This applies the PR template to the submitted PR"""
     from string import Template
     
     loc = os.path.join(os.getcwd(), 'templates')
     loc = os.path.join(os.path.split(os.getcwd())[0], 'templates/PR_template.md')
     
-    template_file = open(template, 'r')
-    temp = Template(template_file.read())
+    template_file = open(loc, 'r')
+    template = Template(template_file.read())
     return template.substitute(template_data)
+
+dummy = format_PR(template_data)
