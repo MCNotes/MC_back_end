@@ -1,10 +1,9 @@
----
-label: review
-status:
-submitting_author:
-submission repo:
-reviewer:
----
+<a href="${user_url}">
+  <img src="${user_avatar}" align="left" width="96" height="96" hspace="10"></img>
+</a>
+
+**Submitted by: [${user}](${user_url})**
+----
 
 ## Status
 
@@ -29,10 +28,9 @@ please carry out your review in this issue by updating the checklist below (plea
 
 ### Conflict of interest
 
- -[ ] As the reviewer I confirm that there are no conflicts of interest for me to review this work (such as being a major contributor to the software).
-Code of Conduct
+ -[ ] As the reviewer I confirm that there are no conflicts of interest for me to review this work (such as being a major contributor to the project).
 
-- [ ] I confirm that I read and will adhere to the JOSS code of conduct.
+- [ ] I confirm that I read and will adhere to the MC Notes code of conduct (this is available here ****).
 
 ### General checks
 
