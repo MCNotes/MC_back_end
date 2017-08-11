@@ -154,19 +154,8 @@ def dict_comments(PR):
     return comment_ind
 
 
-def update_PR(PR, data):
-    """ Used to change the body of the PR according to a
-    predefined template """
-    # note the first element corresponds to the latest pull request
-    construct['pull_no'] = str(pulls[0]['number'])
-    construct['last_pull'] = construct['pulls'] + '/' + construct['pull_no']
 
-    url = create_url('last_pull')
-
-
-    update =  requests.patch(url, data)
     
-
 # ---------------------------------------------------------
 class state:
 	current = ""
@@ -188,6 +177,27 @@ http_error_messages[404] = "ERROR: Unable to find the specified repository/sourc
 
 
 # ---------------------------------------------------------
+
+# Updating or formatting issues and PR
+
+def update_PR(PR, data):
+    """ Used to change the body of the PR according to a
+    predefined template """
+    # note the first element corresponds to the latest pull request
+    construct['pull_no'] = str(pulls[0]['number'])
+    construct['last_pull'] = construct['pulls'] + '/' + construct['pull_no']
+
+    url = create_url('last_pull')
+
+
+    update =  requests.patch(url, data)
+    
+    
+    
+    
+    
+    
+
 def format_from_template(template, template_data):
     from string import Template
     loc = os.path.join(os.getcwd(), 'templates')

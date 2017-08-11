@@ -49,3 +49,32 @@ def format_PR(template_data):
 template_data = import_PR(issue)
 
 dummy = format_PR(template_data)
+
+
+def update_PR(PR, data):
+    """ Used to change the body of the PR according to a
+    predefined template """
+    # note the first element corresponds to the latest pull request
+    construct['pull_no'] = str(pulls[0]['number'])
+    construct['last_pull'] = construct['pulls'] + '/' + construct['pull_no']
+
+    url = create_url('last_pull')
+
+
+    update =  requests.patch(url, data)
+    
+    
+   
+    
+    
+# labels 
+# colors (blue, dark-grey, red, green)
+color = ['#1F618D', '#283747', '#B03A2E', '#1E8449']
+         
+ labels = {'pre-review' : '1F618D',
+           'review' : '283747',
+           'revision-interrupted':'B03A2E',
+           'everything-OK': '1E8449' }        
+         
+         
+         
