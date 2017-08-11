@@ -25,7 +25,7 @@ construct = {'baseurl': 'https://api.github.com/repos/',
 
 
 # ---------------------------------------------------------
-# The folllwing are the various methods used to query
+# The following are the various methods used to query
 # data from GitHub and format data 
 
 
@@ -47,13 +47,25 @@ def get_pulls(*state):
 
     try:
         response.raise_for_status()
-    except requests.exceptions.HTTPError as e:
+    except requests.exceptions.HTTPError as error:
         # Whoops it wasn't a 200
-        return "Error: " + str(e)
+        error_details = error.read()
+        error_details = json.loads(error_details.decode('utf-8'))
+        
+        if error.code in http_error_messages:
+            sys.exit(http_error_messages[error.code])
+        else:
+            error_message = 'ERROR: There was a problem processing your request {}:{}'.format(error.code, error.reason)
+            if'message' in error_details:
+                error_message += "\n Details: " + error_details['message']
+            sys.exit(error_message)
+            
+        #return "Error: " + str(e)
 
     # Must have been a 200 status code
     response_json = response.json()
     return response_json
+
 
 
 def get_files(pulls):
@@ -101,10 +113,13 @@ def summarise_info(PR):
                'author': PR['user']['login'],
                'created_at': PR['created_at'],
                'commit_sha': PR['head']['sha']}
-
-    # Getting the assigned revieswers
-    reviewer_ind = get_reviewers(PR)
-    PR_info['reviewers'] = reviewer_ind
+   
+    if not PR['requested_reviewers']:
+        print('Reviewers have not been assigned yet')
+    else:
+        # Getting the assigned reviewers
+        reviewer_ind = get_reviewers(PR)
+        PR_info['reviewers'] = reviewer_ind
 
     # Getting the reviewers comments
 
@@ -181,3 +196,7 @@ def format_from_template(template, template_data):
     return template.substitute(template_data)
         
     
+
+# labels 
+# colors (blue, dark-grey, red, green)
+colorr = ['#1F618D', '#283747', '#B03A2E', '#1E8449']

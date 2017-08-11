@@ -17,13 +17,6 @@ from MC_python import *
 from MC_python import github_fetch as gh
 import os
 
-    
-
-
-# hard coding for now
-gh_user = 'MCNotes'
-gh_repo = 'MCNotes.github.io'
-
 
 
 # Read YAML file with the pull request info
@@ -52,5 +45,7 @@ def format_PR(template_data):
     template_file = open(loc, 'r')
     template = Template(template_file.read())
     return template.substitute(template_data)
+
+template_data = import_PR(issue)
 
 dummy = format_PR(template_data)

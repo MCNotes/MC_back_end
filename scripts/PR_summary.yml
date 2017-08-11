@@ -1,13 +1,6 @@
-author: trallard
-commit_sha: b7c1cd76f9ed13ef020f3770dd0a7459d8cddd06
-created_at: '2017-07-13T14:03:30Z'
+author: willfurnass
+commit_sha: 8d5bd7984eeab0624a5dce1cc2239d1619a1193e
+created_at: '2017-08-11T09:49:57Z'
 files:
-- .gitignore
-- site/files/images/tr.jpg
-- site/files/images/tr2.jpg
-- site/files/images/tr3.jpg
-- site/posts/ati-data-study-group.md
-number: 48
-reviewers:
-  html_url: https://github.com/mikecroucher
-  login: mikecroucher
+- dummy.md
+number: 21
