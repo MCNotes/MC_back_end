@@ -4,10 +4,9 @@
 Created on Thu Jul 20 15:15:48 2017
 
 @author: tania
-This python script is used to extract the data from the GitHub pull requests
+This python functions are used to extract the data from the GitHub pull requests
 it uses the Github API v3
-note this is not using OAuth as it is not intented for POST request
-or to exceed 60 requests per hour
+note that you might need to authenticate to complete some if this actions
 """
 
 # Loading the required packages
@@ -115,7 +114,7 @@ def summarise_info(PR):
                'commit_sha': PR['head']['sha']}
    
     if not PR['requested_reviewers']:
-        print('Reviewers have not been assigned yet')
+        print('*** Reviewers have not been assigned yet *** \n\n')
     else:
         # Getting the assigned reviewers
         reviewer_ind = get_reviewers(PR)
@@ -124,7 +123,7 @@ def summarise_info(PR):
     # Getting the reviewers comments
 
     if not PR['merged_at']:
-        print('*** This PR has not been merged yet ***')
+        print('*** This PR has not been merged yet *** \n\n')
     else:
         comments = get_revcom()
         PR['merged_at'] = PR['merged_at']
@@ -192,10 +191,7 @@ def update_PR(PR, data):
 
     update =  requests.patch(url, data)
     
-    
-    
-    
-    
+        
     
 
 def format_from_template(template, template_data):
@@ -208,5 +204,7 @@ def format_from_template(template, template_data):
     
 
 # labels 
-# colors (blue, dark-grey, red, green)
-colorr = ['#1F618D', '#283747', '#B03A2E', '#1E8449']
+# colors (blue,     dark-grey,  red,        green)
+colors = ['#1F618D', '#283747', '#B03A2E', '#1E8449']
+
+labels = {'review' : '1F618D'}
