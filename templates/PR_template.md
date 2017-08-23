@@ -3,17 +3,15 @@
 </a>
 
 **Submitted by: [${user}](${user_url})**
+
 **Repository:** ${origin_repo}
 ---
 
 ## Status
 
+${review_badge}
 
-*** add badge ***
 
-## Original body
-
-${body}
 
 ## Note for reviewers and authors:
 Please avoid lengthy details of difficulties in the review thread. Instead, please create a new issue in the target repository and link to those issues in the review thread below.
@@ -33,7 +31,7 @@ Please carry out your review in this issue by updating the checklist below (plea
 
 ### Conflict of interest
 
- -[ ] As the reviewer I confirm that there are no conflicts of interest for me to review this work (such as being a major contributor to the project).
+ - [ ] As the reviewer I confirm that there are no conflicts of interest for me to review this work (such as being a major contributor to the project).
 
 ### Code of conduct
 
@@ -50,3 +48,8 @@ Please carry out your review in this issue by updating the checklist below (plea
 
 ---
 When reviewing the submission feel free to add per-line comments as well as per-submission documents.
+
+---
+## Original body: submission message
+
+${body}
