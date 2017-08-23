@@ -2,13 +2,13 @@
   <img src="${user_avatar}" align="left" width="96" height="96" hspace="10"></img>
 </a>
 
-**Submitted by: [${user}](${user_url})**
+**Submitted by:** [${user}](${user_url})
+
 
 **Repository:** ${origin_repo}
 ---
 
 ## Status
-
 ${review_badge}
 
 
