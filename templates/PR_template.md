@@ -1,17 +1,16 @@
-<a href="${user_url}">
-  <img src="${user_avatar}" align="left" width="96" height="96" hspace="10"></img>
+<a href="${author_url}">
+  <img src="${author_avatar}" align="left" width="96" height="96" hspace="10"></img>
 </a>
 
-**Submitted by:** [${user}](${user_url}) (${user_name})
+**Submitted by:** [${author}](${author_url}) (${author_name})
 
-**Repository:** ${origin_repo}
+**Repository:** ${repo}
 
 ---
 
 ## Status
 
-${review_badge}
-
+[![MCNotes](<svg>)]
 
 
 ## Note for reviewers and authors:
@@ -45,7 +44,7 @@ Please carry out your review in this issue by updating the checklist below (plea
 - [ ] *Notebook structure*: does the notebook follow the required structure? (see *****)
 - [ ] *Notebook content*: is the notebook content relevant? Is all of the code included in the notebook? Do the results seem to be reproducible?
 - [ ] *Data*: has the author provided data stored in an appropriate repository? (e.g. Figshare)
-- [ ] Has the submitting author ${user} made major contributions to the submitted item?
+- [ ] Has the submitting author (@ ${author}) made major contributions to the submitted item?
 
 ---
 When reviewing the submission feel free to add per-line comments as well as per-submission documents.

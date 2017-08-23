@@ -36,41 +36,23 @@ template_data = import_PR(issue)
 # and reformat the PR using our custom template
 dummy = format_PR(template_data)
 
+# setting the approriate label
+PR_labs = issue.add_labels('review')
+PR_labs[-1].update(PR_labs[-1].name, color[1])
 
-def format_PR(template_data):
-    """ This applies the PR template to the submitted PR"""
-    from string import Template
-    
-    loc = os.path.join(os.getcwd(), 'templates')
-    loc = os.path.join(os.path.split(os.getcwd())[0], 'templates/PR_template.md')
-    
-    template_file = open(loc, 'r')
-    template = Template(template_file.read())
-    return template.substitute(template_data)
+# applying the template
+update_PR(issue, dummy)
 
-
-
-def update_PR(PR, data):
-    """ Used to change the body of the PR according to a
-    predefined template """
-    # note the first element corresponds to the latest pull request
-    construct['pull_no'] = str(pulls[0]['number'])
-    construct['last_pull'] = construct['pulls'] + '/' + construct['pull_no']
-
-    url = create_url('last_pull')
-
-
-    update =  requests.patch(url, data)
-    
-    
-   
+def update_PR(issue, content):
+    edited_PR = issue.edit(title = issue.title, body = content)
+    return edited_PR
     
     
 # labels 
 # colors (blue, dark-grey, red, green)
 color = ['#1F618D', '#283747', '#B03A2E', '#1E8449']
          
- labels = {'pre-review' : '1F618D',
+labels = {'pre-review' : '1F618D',
            'review' : '283747',
            'revision-interrupted':'B03A2E',
            'everything-OK': '1E8449' }        

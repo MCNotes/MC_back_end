@@ -167,6 +167,18 @@ def import_PR(issue):
     template_data['body'] = issue.body
     template_data['repo'] = issue.pull_request().head.as_dict()['repo']['url']
     return template_data
+
+
+def format_PR(template_data):
+    """ This applies the PR template to the submitted PR"""
+    
+    from string import Template
+    
+    loc = os.path.join(os.path.split(os.getcwd())[0], 'templates/PR_template.md')
+    
+    template_file = open(loc, 'r')
+    template = Template(template_file.read())
+    return template.substitute(template_data)
     
 # ---------------------------------------------------------
 class state:
