@@ -2,13 +2,14 @@
   <img src="${user_avatar}" align="left" width="96" height="96" hspace="10"></img>
 </a>
 
-**Submitted by:** [${user}](${user_url})
-
+**Submitted by:** [${user}](${user_url}) (${user_name})
 
 **Repository:** ${origin_repo}
+
 ---
 
 ## Status
+
 ${review_badge}
 
 
@@ -31,7 +32,7 @@ Please carry out your review in this issue by updating the checklist below (plea
 
 ### Conflict of interest
 
- - [ ] As the reviewer I confirm that there are no conflicts of interest for me to review this work (such as being a major contributor to the project).
+ - [ ] As the reviewer I confirm that there are no conflicts of interest for me to review this work (such as being a major contributor to the project)
 
 ### Code of conduct
 
