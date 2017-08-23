@@ -154,6 +154,19 @@ def dict_comments(PR):
 
 
 
+def import_PR(issue):
+    """ This imports the issue associated to the PR submission
+    and returns a template that will be used to populate
+    the template"""
+    
+    template_data = {}
+    template_data['author'] = issue.user.login
+    template_data['author_url'] = issue.user.html_url
+    template_data['author_avatar'] = issue.user.avatar_url
+    template_data['author_name'] = Github.user(issue.user.login).name
+    template_data['body'] = issue.body
+    template_data['repo'] = issue.pull_request().head.as_dict()['repo']['url']
+    return template_data
     
 # ---------------------------------------------------------
 class state:
@@ -187,7 +200,6 @@ def update_PR(PR, data):
     construct['last_pull'] = construct['pulls'] + '/' + construct['pull_no']
 
     url = create_url('last_pull')
-
 
     update =  requests.patch(url, data)
     

@@ -25,22 +25,17 @@ with open("PR_summary.yml", 'r') as stream:
 
 # since we will be updating the PR we need to open an authenticated session
 Github = gh3.login(token = token)
+print('*** The PR will be modified by {} *** \n\n\n' .format(Github.me()))
 
 # get the repository to use from the package
 issue = Github.issue(gh_user, gh_repo, PR_info['number'])
 
-# we collect the information needed
+# we collect the information needed from the author and the repo
 template_data = import_PR(issue)
 
 # and reformat the PR using our custom template
 dummy = format_PR(template_data)
 
-def import_PR(issue):
-    template_data = {}
-    template_data['user'] = issue.user.login
-    template_data['user_url'] = issue.user.html_url
-    template_data['user_avatar'] = issue.user.avatar_url
-    return template_data
 
 def format_PR(template_data):
     """ This applies the PR template to the submitted PR"""
