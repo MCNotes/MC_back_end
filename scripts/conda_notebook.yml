@@ -9,6 +9,6 @@ dependencies:
   - pip
   - matplotlib
   - pandas
+  - pyyaml
   - pip :
     - nbval
-    - pyyaml
