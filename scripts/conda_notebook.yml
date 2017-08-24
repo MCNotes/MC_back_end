@@ -4,6 +4,7 @@ dependencies:
   - numpy
   - scipy
   - jupyter
+  - ipywidgets
   - requests
   - pip
   - matplotlib
@@ -11,4 +12,3 @@ dependencies:
   - pip :
     - nbval
     - pyyaml
-    
