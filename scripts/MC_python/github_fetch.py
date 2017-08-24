@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jul 20 15:15:48 2017
 
-@author: tania
-This python functions are used to extract the data from the GitHub pull requests
-it uses the Github API v3
-note that you might need to authenticate to complete some if this actions
+@author: Tania Allard
+@ghuser: trallard
+
+This python functions are used to make queries using the
+GitHub API.
+Some functions are custom made, while others are built using the
+github3.py library
+Please note that you might need to authenticate to complete some if this actions
 """
 
 # Loading the required packages
