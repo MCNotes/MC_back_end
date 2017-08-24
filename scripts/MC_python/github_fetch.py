@@ -169,16 +169,6 @@ def import_PR(issue):
     return template_data
 
 
-def format_PR(template_data):
-    """ This applies the PR template to the submitted PR"""
-    
-    from string import Template
-    
-    loc = os.path.join(os.path.split(os.getcwd())[0], 'templates/PR_template.md')
-    
-    template_file = open(loc, 'r')
-    template = Template(template_file.read())
-    return template.substitute(template_data)
     
 # ---------------------------------------------------------
 class state:
@@ -215,15 +205,19 @@ def update_PR(PR, data):
 
     update =  requests.patch(url, data)
     
-        
+
+def format_PR(template_data):
+    """ This applies the PR template to the submitted PR"""
+    
+    from string import Template
+    
+    loc = os.path.join(os.path.split(os.getcwd())[0], 'templates/PR_template.md')
+    
+    template_file = open(loc, 'r')
+    template = Template(template_file.read())
+    return template.substitute(template_data)       
     
 
-def format_from_template(template, template_data):
-    from string import Template
-    loc = os.path.join(os.getcwd(), 'templates')
-    template_file = open(template, 'r')
-    temp = Template(template_file.read())
-    return template.substitute(template_data)
         
     
 
