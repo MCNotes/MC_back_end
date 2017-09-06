@@ -68,10 +68,8 @@ def update_PR(PR, data):
     
     
 # labels 
-# colors (blue, dark-grey, red, green)
-color = ['#1F618D', '#283747', '#B03A2E', '#1E8449']
          
- labels = {'pre-review' : '1F618D',
+labels = {'pre-review' : '1F618D',
            'review' : '283747',
            'revision-interrupted':'B03A2E',
            'everything-OK': '1E8449' }        
