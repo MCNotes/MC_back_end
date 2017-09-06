@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jul 20 15:15:48 2017
-
 @author: Tania Allard
 @ghuser: trallard
 
 This python script is used to extract the data from the GitHub pull requests
-it uses the Github API v3
-note this is not using OAuth as it is not intented for POST request
-or to exceed 60 requests per hour
+note this is not using OAuth as it is not processing POST request
+or to exceed 60 requests per hour.
 """
 
 # getting the location of the script and changing the wd
@@ -51,7 +48,7 @@ PR_info['files'] = files
 #in json format
 #json.dump(PR_info, open('./PR_summary.json', 'w'))
 
-# in yaml format
+# Saving the information obtained in yaml format
 with open('PR_summary.yml', 'w') as yml_file:
     yaml.dump(PR_info, yml_file, default_flow_style = False)
 

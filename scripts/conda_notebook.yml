@@ -4,11 +4,11 @@ dependencies:
   - numpy
   - scipy
   - jupyter
+  - ipywidgets
   - requests
   - pip
   - matplotlib
   - pandas
+  - pyyaml
   - pip :
     - nbval
-    - pyyaml
-    

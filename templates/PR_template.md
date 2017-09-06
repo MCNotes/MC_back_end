@@ -1,14 +1,17 @@
-<a href="${user_url}">
-  <img src="${user_avatar}" align="left" width="96" height="96" hspace="10"></img>
+<a href="${author_url}">
+  <img src="${author_avatar}" align="left" width="96" height="96" hspace="10"></img>
 </a>
 
-**Submitted by: [${user}](${user_url})**
-----
+**Submitted by:** [${author}](${author_url}) (${author_name})
+
+**Repository:** ${repo}
+
+---
 
 ## Status
 
+[![MCNotes](<svg>)]
 
-*** add badge ***
 
 ## Note for reviewers and authors:
 Please avoid lengthy details of difficulties in the review thread. Instead, please create a new issue in the target repository and link to those issues in the review thread below.
@@ -23,16 +26,30 @@ If you have any suggestions for reviewers please mention them here in this threa
 -------
 
 ## Reviewer questions
-please carry out your review in this issue by updating the checklist below (please make sure you're logged in to GitHub). The reviewer guidelines are available here: ****
+Please carry out your review in this issue by updating the checklist below (please make sure you're logged in to GitHub). The reviewer guidelines are available here: ****
 
 
 ### Conflict of interest
 
- -[ ] As the reviewer I confirm that there are no conflicts of interest for me to review this work (such as being a major contributor to the project).
+ - [ ] As the reviewer I confirm that there are no conflicts of interest for me to review this work (such as being a major contributor to the project)
+
+### Code of conduct
 
 - [ ] I confirm that I read and will adhere to the MC Notes code of conduct (this is available here ****).
 
-### General checks
+### Submission specific checks
 
 - [ ] *Repository*: has the author provided the base python notebook, a metadata file, and an enviroment file?
-- [ ] *Notebook*: if the notebooks stated as validated (on top of this issue)
+- [ ] *Notebook*: has the notebook been validated? (check the top badge)
+- [ ] *Notebook structure*: does the notebook follow the required structure? (see *****)
+- [ ] *Notebook content*: is the notebook content relevant? Is all of the code included in the notebook? Do the results seem to be reproducible?
+- [ ] *Data*: has the author provided data stored in an appropriate repository? (e.g. Figshare)
+- [ ] Has the submitting author (@ ${author}) made major contributions to the submitted item?
+
+---
+When reviewing the submission feel free to add per-line comments as well as per-submission documents.
+
+---
+## Original body: submission message
+
+${body}
